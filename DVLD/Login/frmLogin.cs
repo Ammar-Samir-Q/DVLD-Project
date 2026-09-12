@@ -23,26 +23,21 @@ namespace DVLD
         private clsUser _User;
         // To Save Login Info
 
-        private async Task GetUser()
+
+        private  void _Login()
         {
-            _User=clsUser.FindUserByUserNameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
-        }
-        private async Task _Login()
-        {
-            Task IsFound=GetUser();
-            lblLogging.Visible = true;
-            await IsFound;
+            _User = clsUser.FindUserByUserNameAndPassword(txtUserName.Text, txtPassword.Text);
+
             if (_User!=null)
             {
                     if (_User.IsActive)
                     {
                     if (cbRememberMe.Checked)
                     {
-                        //  clsGlobalSettings.SaveRememberMe(txtUserName.Text.Trim(), txtPassword.Text.Trim());
-                        clsGlobalSettings.SaveLoginInfoToReg(txtUserName.Text, txtPassword.Text);
+                         clsGlobalSettings.SaveLoginInfoToReg(txtUserName.Text, txtPassword.Text);
                     }
                     else
-                        clsGlobalSettings.SaveLoginInfoToReg("","");
+                    clsGlobalSettings.SaveLoginInfoToReg("","");
                     clsGlobalSettings.UserID=_User.UserID;
                     clsGlobalSettings.CurrentUserInfo = _User;
                     Form frm = new frmMainMenu(this);
@@ -56,9 +51,7 @@ namespace DVLD
             }
             else
             {
-                lblLogging.Visible = false;
-                txtPassword.Clear();
-                txtUserName.Clear();
+              
                 txtUserName.Focus();
                 MessageBox.Show("Invalid UserName Or Password", "Wrong Credential",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
@@ -86,7 +79,7 @@ namespace DVLD
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             _Login();
         }

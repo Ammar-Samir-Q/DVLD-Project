@@ -43,45 +43,45 @@ namespace DVLD_BLL
             }
             catch (Exception ex)
             {
-                //Handel Error
+                Util.Logger.LogHelper.Log("DVLD", ex.Message,System.Diagnostics.EventLogEntryType.Error);
                 return;
             }
             
         }
 
-        static public bool ReadRememberMe(ref string UserName,ref string Password)
-        {
-            try
-            {
-                string SavePath = System.IO.Directory.GetCurrentDirectory();
-                SavePath += "\\LoginData.txt";
-                if (!File.Exists(SavePath))
-                {
-                    return false;
-                }
+        //static public bool ReadRememberMe(ref string UserName,ref string Password)
+        //{
+        //    try
+        //    {
+        //        string SavePath = System.IO.Directory.GetCurrentDirectory();
+        //        SavePath += "\\LoginData.txt";
+        //        if (!File.Exists(SavePath))
+        //        {
+        //            return false;
+        //        }
 
-                using (StreamReader Reader = new StreamReader(SavePath))
-                {
-                    string Line = "";
-                    while ((Line = Reader.ReadLine()) != null)
-                    {
-                        Console.WriteLine(Line);
-                        string[] Result = Line.Split(new string[] { "#//#" }, StringSplitOptions.None);
-                        UserName = Result[0];
-                        Password = Result[1];
-                        return true;
-                    }
+        //        using (StreamReader Reader = new StreamReader(SavePath))
+        //        {
+        //            string Line = "";
+        //            while ((Line = Reader.ReadLine()) != null)
+        //            {
+        //                Console.WriteLine(Line);
+        //                string[] Result = Line.Split(new string[] { "#//#" }, StringSplitOptions.None);
+        //                UserName = Result[0];
+        //                Password = Result[1];
+        //                return true;
+        //            }
 
-                }
-            }
-            catch { Exception ex; }
-            {
-                //Handel
-                return false;            
-            }
+        //        }
+        //    }
+        //    catch (Exception ex )
+        //    {
+        //        Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+        //        return false;            
+        //    }
 
 
-        }
+        //}
 
         static public void SaveLoginInfoToReg(string Username,string Password)
         {
@@ -92,7 +92,7 @@ namespace DVLD_BLL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error While Saving In Registery", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

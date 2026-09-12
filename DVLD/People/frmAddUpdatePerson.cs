@@ -77,8 +77,7 @@ namespace DVLD
                 if (string.IsNullOrEmpty(_Person.ImagePath))
                     _SetDefaultImages();
                 else
-                     pbImage.ImageLocation = _Person.ImagePath;
-                   
+                     pbImage.ImageLocation = _Person.ImagePath;                  
             }
           
             _SetRemovelinkVisabilty();
@@ -108,26 +107,6 @@ namespace DVLD
             txtEmail.Text = "";
             txtAddress.Text = "";
             dtpDateOfBirth.Value=dtpDateOfBirth.MaxDate;
-        }
-        private void _CopyImagePathToProject()
-        {
-            if(!string.IsNullOrEmpty(_Person.ImagePath))
-            {
-                string ProjectPath = Application.StartupPath;
-                string ImagesFolder = Path.Combine(ProjectPath, "DVLD_PersonImages");
-                if (!Directory.Exists(ImagesFolder))
-                {
-                    Directory.CreateDirectory(ImagesFolder);
-                }
-                string FileName=Guid.NewGuid().ToString()+Path.GetExtension(_Person.ImagePath);
-                string Destnation = Path.Combine(ImagesFolder, FileName);
-                File.Copy(_Person.ImagePath, Destnation, true);
-                
-            }
-            else
-            {
-                _Person.ImagePath = null;
-            }
         }
 
         private void _LoadData()
@@ -241,44 +220,56 @@ namespace DVLD
         //Handel Image ------------------
      private bool _HandelImage()
         {
-            if (_Person.ImagePath == pbImage.ImageLocation)
+            if (pbImage.ImageLocation == _Person.ImagePath)
+                return true;
+            if (string.IsNullOrEmpty(pbImage.ImageLocation) && string.IsNullOrEmpty(_Person.ImagePath))
                 return true;
 
-            if(_Person.ImagePath!=pbImage.ImageLocation)
+            //Case 1 If Picture Is Removed And The Path On The Database Exists = Delete Image And Change ImagePath In DB To Null
+            if (string.IsNullOrEmpty(pbImage.ImageLocation) && !string.IsNullOrEmpty(_Person.ImagePath))
             {
-                if (!string.IsNullOrEmpty(_Person.ImagePath) )
+                if (!Util.ImageHelper.DeleteImage(_Person.ImagePath, Application.StartupPath))
                 {
-                    try
-                    {
-                        //Delete Old Image
-                        File.Delete(_Person.ImagePath);
-                    }
-                    catch (IOException)
-                    {
-                        //Log it Later
-                        return false;
-                    }
+                    MessageBox.Show("Failed To Delete Image", "Image Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            if(pbImage.ImageLocation!=null)
-            {
-                string SourcePath=pbImage.ImageLocation.ToString();
-                if(clsUtil.CopyImageToFileLocation( ref SourcePath))
-                {
-                    
-                    
-                    pbImage.ImageLocation = SourcePath;
-                    _Person.ImagePath=SourcePath;
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Error While Copying The Image", "Image-Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error); ;
-                    return false;
-                }
+                _Person.ImagePath = null;
+                return true;
             }
 
-            return true;
+            //Case 2 : If Picture Is Exists And Not Yet Saved To Database= SaveImage And Return Relative Path To Imagepath  
+            if (string.IsNullOrEmpty(_Person.ImagePath) && !string.IsNullOrEmpty(pbImage.ImageLocation))
+            {
+                string ReleativePath = Util.ImageHelper.SaveImage(pbImage.ImageLocation, Application.StartupPath, "People");
+                if (string.IsNullOrEmpty(ReleativePath))
+                {
+                    MessageBox.Show("Error While Saving Image To Folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                _Person.ImagePath = ReleativePath;
+                pbImage.ImageLocation = _Person.ImagePath;
+                return true;
+            }
+
+            //Case 3 : if picture on the imagelocation is diffrent from the picture on the imagepath = update picture on database (delete old and save new
+
+            if (pbImage.ImageLocation != _Person.ImagePath)
+            {
+                if (Util.ImageHelper.DeleteImage(_Person.ImagePath, Application.StartupPath))
+                {
+                    string ReleativePath = Util.ImageHelper.SaveImage(pbImage.ImageLocation, Application.StartupPath, "People");
+                    if (string.IsNullOrEmpty(ReleativePath))
+                    {
+                        MessageBox.Show("Error While Saving Image To Folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    _Person.ImagePath = ReleativePath;
+                    pbImage.ImageLocation = _Person.ImagePath;
+                    return true;
+
+                }
+
+            }
+            return false;
         }
         
       
@@ -295,7 +286,6 @@ namespace DVLD
             ofd.Title = "Choose A Picture";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                //_Person.ImagePath=ofd.FileName;
                 pbImage.ImageLocation=ofd.FileName;
             }
             _SetRemovelinkVisabilty();
@@ -329,8 +319,7 @@ namespace DVLD
         private void linkRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             pbImage.ImageLocation = null;
-            _Person.ImagePath = null;
-            _LoadImage();
+            _SetDefaultImages();
             linkRemoveImage.Visible = false;
         }
 

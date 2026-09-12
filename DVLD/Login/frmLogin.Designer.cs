@@ -42,13 +42,10 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblSmallTitle = new System.Windows.Forms.Label();
             this.lblVersionNumber = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblLogging = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +130,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Controls.Add(this.lblLogging);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button1);
@@ -190,7 +186,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Image = global::DVLD.Properties.Resources.Icon_Login;
-            this.btnLogin.Location = new System.Drawing.Point(352, 296);
+            this.btnLogin.Location = new System.Drawing.Point(403, 296);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(62, 57);
             this.btnLogin.TabIndex = 3;
@@ -202,32 +198,22 @@
             this.lblSmallTitle.AutoSize = true;
             this.lblSmallTitle.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSmallTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSmallTitle.Location = new System.Drawing.Point(48, 263);
+            this.lblSmallTitle.Location = new System.Drawing.Point(12, 263);
             this.lblSmallTitle.Name = "lblSmallTitle";
-            this.lblSmallTitle.Size = new System.Drawing.Size(280, 23);
+            this.lblSmallTitle.Size = new System.Drawing.Size(350, 23);
             this.lblSmallTitle.TabIndex = 9;
-            this.lblSmallTitle.Text = "Driving License Managment ";
+            this.lblSmallTitle.Text = "Driving License Managment System";
             // 
             // lblVersionNumber
             // 
             this.lblVersionNumber.AutoSize = true;
             this.lblVersionNumber.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVersionNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblVersionNumber.Location = new System.Drawing.Point(74, 497);
+            this.lblVersionNumber.Location = new System.Drawing.Point(12, 497);
             this.lblVersionNumber.Name = "lblVersionNumber";
             this.lblVersionNumber.Size = new System.Drawing.Size(53, 23);
             this.lblVersionNumber.TabIndex = 10;
             this.lblVersionNumber.Text = "V1.1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.logo_AgzinzWhite;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 479);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(56, 41);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -239,26 +225,12 @@
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
-            // lblLogging
-            // 
-            this.lblLogging.AutoSize = true;
-            this.lblLogging.BackColor = System.Drawing.Color.Gainsboro;
-            this.lblLogging.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogging.ForeColor = System.Drawing.Color.Black;
-            this.lblLogging.Location = new System.Drawing.Point(411, 310);
-            this.lblLogging.Name = "lblLogging";
-            this.lblLogging.Size = new System.Drawing.Size(122, 25);
-            this.lblLogging.TabIndex = 15;
-            this.lblLogging.Text = "Logging ...";
-            this.lblLogging.Visible = false;
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(935, 529);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblVersionNumber);
             this.Controls.Add(this.lblSmallTitle);
             this.Controls.Add(this.lblTitle);
@@ -276,7 +248,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -299,8 +270,6 @@
         private System.Windows.Forms.Label lblVersionNumber;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lblLogging;
     }
 }
