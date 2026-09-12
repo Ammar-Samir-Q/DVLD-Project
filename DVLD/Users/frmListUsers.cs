@@ -201,12 +201,12 @@ namespace DVLD
 
         private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon...","Not Emplemented Yet",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+            MessageBox.Show("this feature is not implemented yet", "coming soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void callPhoneToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming Soon...", "Not Emplemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            MessageBox.Show("this feature is not implemented yet", "coming soon", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)

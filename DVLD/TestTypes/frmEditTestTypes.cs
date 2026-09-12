@@ -28,7 +28,7 @@ namespace DVLD.TestTypes
                 _Test=DVLD_BLL.clsTestType.Find(_TestTypeID);
                 if(_Test!=null)
                 {
-                    lblID.Text = _Test.ID.ToString();
+                    lblID.Text = _TestTypeID.ToString();
                     txtTitle.Text = _Test.Title;
                     txtDescription.Text= _Test.Description; 
                     txtFees.Text = _Test.Fees.ToString();

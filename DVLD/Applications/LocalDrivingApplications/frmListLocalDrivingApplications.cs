@@ -143,15 +143,21 @@ namespace DVLD
        
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(DVLD_BLL.clsApplication.UpdateApplicationStatus(DVLD_BLL.clsLocalDrivingApplication.FindLocalDrivingApplication((int)dgvApplications.SelectedRows[0].Cells[0].Value).ApplicationID,2))
+            if (MessageBox.Show($"Application With ID {(int)dgvApplications.SelectedRows[0].Cells[0].Value} Will be Cancelled ?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                MessageBox.Show("Application Cancelled Successfully", "Cancelled",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                _RefreashDGV();
+                if (DVLD_BLL.clsApplication.UpdateApplicationStatus(DVLD_BLL.clsLocalDrivingApplication.FindLocalDrivingApplication((int)dgvApplications.SelectedRows[0].Cells[0].Value).ApplicationID, 2))
+                {
+
+                    MessageBox.Show("Application Cancelled Successfully", "Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _RefreashDGV();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error : Faild To Cancel THis Application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Error : Faild To Cancel THis Application","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+          
         }
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)

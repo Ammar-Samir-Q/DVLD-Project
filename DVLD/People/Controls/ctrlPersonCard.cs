@@ -101,8 +101,7 @@ namespace DVLD
                 {
                 if (File.Exists(_Person.ImagePath))
                     pbPersonImage.ImageLocation = _Person.ImagePath.ToString();
-                else
-                    MessageBox.Show("Could Not Found The Image", "Image Not Found");
+                
                 }
                 else
                 {
@@ -138,6 +137,9 @@ namespace DVLD
             LoadPersonInfo(_PersonID);
         }
 
-       
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

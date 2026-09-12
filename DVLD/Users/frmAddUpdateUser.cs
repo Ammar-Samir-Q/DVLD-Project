@@ -62,13 +62,13 @@ namespace DVLD
             if (_User.Save())
             {
                 _Mode = enMode.eUpdate;
-                MessageBox.Show("User Saved Succssuflly", "Saved");
+                MessageBox.Show("User Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 _UserID = _User.UserID;
                 _LoadData();
             }
             else
             {
-                MessageBox.Show("Faild To Save User", "Faild");
+                MessageBox.Show("Faild To Save User", "Error While Saving", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -89,12 +89,12 @@ namespace DVLD
                     }
                     else
                     {
-                        MessageBox.Show("Person ID :" + ctrlPersonCardWithFilter1.PersonID.ToString() + " Is A;ready have Account!", "Person");
+                        MessageBox.Show("Person ID :" + ctrlPersonCardWithFilter1.PersonID.ToString() + " Is Already have Account", "Person",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please Select Person First", "Select Person");
+                    MessageBox.Show("Please Select Person First", "Select Person",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     btnSave.Enabled = false;
                     tc.TabPages.Remove(tpUserInfo);
                 }
@@ -157,7 +157,7 @@ namespace DVLD
                 _Save();
             }
             else
-                MessageBox.Show("Some Filds Are Not Valid","Validation Error");
+                MessageBox.Show("some filds are not valid","Validation Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
