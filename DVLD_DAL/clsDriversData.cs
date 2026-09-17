@@ -37,7 +37,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
-                //Handl Error
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return DriverID;
@@ -65,7 +65,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
-                //Handle
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return IsUpdated;
@@ -94,7 +94,9 @@ namespace DVLD_DAL
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -114,6 +116,8 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
             finally { connection.Close(); }
@@ -138,6 +142,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -161,7 +166,9 @@ namespace DVLD_DAL
 
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
 
@@ -188,7 +195,9 @@ namespace DVLD_DAL
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }

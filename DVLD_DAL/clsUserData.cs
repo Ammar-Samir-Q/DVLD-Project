@@ -34,7 +34,7 @@ namespace DVLD_DAL
             }
             catch(Exception ex)
             {
-                //Handl Error
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return UserID;
@@ -64,7 +64,7 @@ SET PersonID=@PersonID,
             }
             catch (Exception ex)
             {
-                //Handl
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return IsUpdated;
@@ -94,7 +94,9 @@ SET PersonID=@PersonID,
             reader.Close();
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -121,7 +123,9 @@ SET PersonID=@PersonID,
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -148,7 +152,9 @@ SET PersonID=@PersonID,
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -169,6 +175,7 @@ SET PersonID=@PersonID,
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -195,6 +202,7 @@ Users.UserName,Users.IsActive FROM Users join People ON Users.PersonID=People.Pe
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -217,7 +225,9 @@ Users.UserName,Users.IsActive FROM Users join People ON Users.PersonID=People.Pe
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsExists;
         }
@@ -237,8 +247,9 @@ Users.UserName,Users.IsActive FROM Users join People ON Users.PersonID=People.Pe
                 reader.Close();
             }
             catch (Exception ex)
-            { 
-            
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+
             }
             finally { connection.Close(); }
             return IsExists;

@@ -49,6 +49,7 @@ namespace DVLD_DAL
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -85,6 +86,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -124,6 +126,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -162,6 +165,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -182,7 +186,9 @@ namespace DVLD_DAL
                 IsDELETED = RowsAffected > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDELETED;
         }
@@ -204,7 +210,9 @@ namespace DVLD_DAL
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return dt;
 
@@ -231,7 +239,9 @@ namespace DVLD_DAL
 
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return PassedTestCount;
         }
@@ -260,6 +270,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }

@@ -54,7 +54,9 @@ SELECT SCOPE_IDENTITY();";
             
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return DetainID;
 
@@ -109,7 +111,9 @@ WHERE DetainID=@DetainID;";
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsUpdated;
 
@@ -157,7 +161,9 @@ WHERE DetainID=@DetainID;";
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
 
@@ -206,7 +212,9 @@ WHERE DetainID=@DetainID;";
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
 
@@ -231,7 +239,9 @@ ORDER BY DetainID DESC;";
                 reader.Close();
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return dt;
 
@@ -256,7 +266,9 @@ ORDER BY DetainID DESC;";
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDetain;
         }
@@ -285,7 +297,9 @@ ORDER BY DetainID DESC;";
                 IsReleased=RowsAffected > 0;
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsReleased;
 

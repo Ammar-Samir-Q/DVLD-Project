@@ -55,7 +55,9 @@ namespace DVLD_DAL
                     TestAppointmentID = ID;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return TestAppointmentID;
         }
@@ -97,7 +99,9 @@ namespace DVLD_DAL
                 IsUpdated=AffectedRows > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsUpdated;
         }
@@ -117,7 +121,9 @@ namespace DVLD_DAL
                 IsDELETED = RowsAffected > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDELETED;
         }
@@ -158,9 +164,10 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
-            finally{ connection.Close(); }
+            finally { connection.Close(); }
             return IsFound;
         }
 
@@ -200,6 +207,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -243,6 +251,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -271,6 +280,7 @@ ORDER BY TestAppointmentID DESC ";
             catch(Exception ex)
             {
 
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -295,8 +305,10 @@ ORDER BY TestAppointmentID DESC ";
                 reader.Close();
             }
             catch(Exception ex)
-            { }
-            finally{ connection.Close(); }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
+            finally { connection.Close(); }
             return dt;
 
 
@@ -322,7 +334,9 @@ ORDER BY TestAppointmentID DESC ";
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return dt;
 
@@ -348,15 +362,13 @@ Order By TestAppointmentID DESC;";
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
             return IsActive;
         }
 
-
-        //GetApplicationTestAppointmentPerTestType(int LocalDrivingAppID,int TestType)
-        //GetTest(int TestAppointment)
 
     }
 }

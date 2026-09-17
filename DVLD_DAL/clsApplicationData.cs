@@ -51,6 +51,7 @@ namespace DVLD_DAL
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); } 
@@ -91,6 +92,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -125,6 +127,7 @@ namespace DVLD_DAL
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -152,7 +155,9 @@ namespace DVLD_DAL
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDeleted;
 
@@ -176,7 +181,9 @@ namespace DVLD_DAL
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return Data;
         }
@@ -201,6 +208,7 @@ namespace DVLD_DAL
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -225,7 +233,9 @@ namespace DVLD_DAL
                     AppID = ID;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return AppID;
         }
@@ -247,7 +257,9 @@ namespace DVLD_DAL
                     AppID = ID;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return AppID;
         }
@@ -270,7 +282,9 @@ namespace DVLD_DAL
 
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally
             { connection.Close(); }
             return IsActive;

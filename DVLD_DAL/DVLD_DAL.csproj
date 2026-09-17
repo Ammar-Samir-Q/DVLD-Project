@@ -39,6 +39,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Util">
+      <HintPath>..\..\..\Util Class\Util Class\Util\bin\Release\Util.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsApplicationData.cs" />

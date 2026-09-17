@@ -9,7 +9,7 @@ namespace DVLD_BLL
 {
     public class clsInternationaLicense:clsApplication
     {
-        enum enMode { eAdd=1,eUpdate=2}
+        new enum enMode { eAdd=1,eUpdate=2}
 
         public int InternationalLicenseID { get; set; }
 
@@ -26,7 +26,7 @@ namespace DVLD_BLL
 
         public bool IsActive { get; set; }
 
-        private enMode _Mode;
+        private new enMode _Mode;
 
         //----------------
         public clsInternationaLicense()
@@ -80,7 +80,7 @@ namespace DVLD_BLL
             return DVLD_DAL.clsInternationalApplicationsData.UpdateInternationalLicense(InternationalLicenseID, ApplicationID, DriverID, IssueUsingLicenseID, IssueDate, ExpirationDate, IsActive, CreatedByUserID);
         }
 
-        public bool Save()
+        public new bool Save()
         {
             base._Mode=(clsApplication.enMode)this._Mode;
             if (!base.Save())

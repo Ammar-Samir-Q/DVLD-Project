@@ -10,13 +10,13 @@ namespace DVLD_BLL
 {
     public class clsLocalDrivingApplication :clsApplication
     {
-        private enum enMode { eAdd=1,eUpdate=2}
+        new protected enum enMode { eAdd=1,eUpdate=2}
         public int LocalDrivingLicenseApplicationID { get; set; }
         public int LicenseClassID { get; set; }
 
         public clsLicenseClasse LicenseClassInfo;
 
-        private enMode _Mode;
+        protected new enMode _Mode;
 
         //---------------Constructors-------------
         public clsLocalDrivingApplication()
@@ -60,7 +60,7 @@ namespace DVLD_BLL
             return clsLocalDrivingApplicationData.UpdateLocalDrivingApplication(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
         }
 
-        public bool Save()
+        public new bool Save()
         {
             base._Mode =(clsApplication.enMode)this._Mode;
             if (!base.Save())

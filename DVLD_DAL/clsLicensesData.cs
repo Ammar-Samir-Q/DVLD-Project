@@ -63,7 +63,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
-                //Handl Error
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return LicenseID;
@@ -110,7 +110,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
-                //Handle
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
             }
             finally { connection.Close(); }
             return IsUpdated;
@@ -154,7 +154,9 @@ namespace DVLD_DAL
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -198,7 +200,9 @@ WHERE LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID;";
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
         }
@@ -219,6 +223,7 @@ WHERE LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID;";
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -243,6 +248,7 @@ WHERE LocalDrivingLicenseApplicationID=@LocalDrivingLicenseApplicationID;";
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -272,6 +278,7 @@ WHERE ApplicantPersonID=@PersonID;";
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -299,7 +306,9 @@ ORDER BY LicenseID DESC;";
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return LinceseID;
         }
@@ -324,7 +333,9 @@ ORDER BY LicenseID DESC;";
                 IsUpdated = RowsAffected > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsUpdated;
         }

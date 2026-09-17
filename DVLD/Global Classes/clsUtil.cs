@@ -22,7 +22,8 @@ namespace DVLD_BLL
                     Directory.CreateDirectory(FolderPath);
                 }
                 catch(IOException ex)
-                { 
+                {
+                    Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
                     return false;
                 }
                 return true;
@@ -59,6 +60,7 @@ namespace DVLD_BLL
                 }
                 catch(IOException ex)
                 {
+                    Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
                     return false;
                 }
                 SourceFile=DestinationPath;
@@ -82,6 +84,7 @@ namespace DVLD_BLL
                 }
                 catch (IOException ex)
                 {
+                    Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
                     return false;
                 }
                 return true;

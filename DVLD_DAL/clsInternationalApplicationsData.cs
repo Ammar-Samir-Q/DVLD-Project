@@ -56,7 +56,9 @@ INSERT INTO InternationalLicenses
 
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return InternationalLicecnseID;
         }
@@ -95,7 +97,9 @@ UPDATE InternationalLicenses
                 IsUpdated = AffectedRows > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
              return IsUpdated ;
         }
@@ -125,7 +129,9 @@ UPDATE InternationalLicenses
                 reader.Close();
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
 
@@ -157,7 +163,9 @@ UPDATE InternationalLicenses
                 reader.Close();
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsFound;
 
@@ -181,7 +189,9 @@ UPDATE InternationalLicenses
                 IsDeleted = AffectedRows > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDeleted;
         }
@@ -203,6 +213,7 @@ UPDATE InternationalLicenses
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -229,6 +240,7 @@ Join Applications On InternationalLicenses.ApplicationID=Applications.Applicatio
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally
@@ -253,6 +265,7 @@ Join Applications On InternationalLicenses.ApplicationID=Applications.Applicatio
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -281,7 +294,9 @@ Join Applications On InternationalLicenses.ApplicationID=Applications.Applicatio
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return InternationalID;
 

@@ -32,7 +32,9 @@ namespace DVLD_DAL
                     LocalDrivingApplicationID = ID;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return LocalDrivingApplicationID;
         }
@@ -59,7 +61,9 @@ namespace DVLD_DAL
                 IsUpdated = RowsAffected > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsUpdated;
         }
@@ -80,7 +84,9 @@ namespace DVLD_DAL
                 IsDELETED = RowsAffected > 0;
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return IsDELETED;
         }
@@ -132,6 +138,8 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
             finally { connection.Close(); }
@@ -159,6 +167,8 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+
 
             }
             finally { connection.Close(); }
@@ -188,6 +198,7 @@ namespace DVLD_DAL
             }
             catch (Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -216,6 +227,7 @@ WHERE Applications.ApplicantPersonID=@PersonID AND LicenseClasses.LicenseClassID
             catch(Exception ex)
             {
 
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
@@ -241,6 +253,7 @@ WHERE ApplicantPersonID=@ApplicantPersonID AND Licenses.LicenseClass=@LicenseCla
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
 
             }
@@ -268,7 +281,9 @@ WHERE ApplicantPersonID=@ApplicantPersonID AND Licenses.LicenseClass=@LicenseCla
 
             }
             catch (Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return TrailCount;
         }
@@ -290,7 +305,9 @@ WHERE ApplicantPersonID=@ApplicantPersonID AND Licenses.LicenseClass=@LicenseCla
                 reader.Close();
             }
             catch(Exception ex)
-            { }
+            {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+            }
             finally { connection.Close(); }
             return DosePass;
         }
@@ -313,6 +330,7 @@ WHERE TestAppointments.LocalDrivingLicenseApplicationID=@LocalDrivingLicenseAppl
             }
             catch(Exception ex)
             {
+                Util.Logger.LogHelper.Log("DVLD", ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
             }
             finally { connection.Close(); }
