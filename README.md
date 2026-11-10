@@ -33,4 +33,4 @@ Coming soon.
 2. Run the installer as Administrator.
 3. Choose your preferred installation directory.
 4. Wait for the installation to complete.
-5. Launch `DVLD.exe` and enjoy!
+5. Launch `DVLD.exe`
